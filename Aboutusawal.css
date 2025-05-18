@@ -1,0 +1,23 @@
+.image-section {
+  position: absolute;
+  right: -60px;
+  bottom: -4px;
+  z-index: 1;
+}
+
+.image-section img {
+  top: 200px;
+  bottom: 200px;
+  height: 550px;
+  width: fit-content;
+}
+
+body {
+  min-height: 100vh;
+  background: url("/Gambar/333\ ABOUT\ US.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}

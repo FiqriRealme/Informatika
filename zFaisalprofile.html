@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Us - My TaxPal</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+        overflow: hidden; /* Menghilangkan scroll */
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: url("/Gambar/faisal\ bg.png") no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header {
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .header img {
+        height: 60px;
+      }
+
+      .header span {
+        font-weight: bold;
+        color: white;
+        font-size: 30px;
+      }
+
+      .main-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .content-box {
+        width: 100%;
+        max-width: 1100px;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 30px;
+        padding: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 400px;
+      }
+
+      .text-section {
+        max-width: 55%;
+        color: #333;
+      }
+
+      h1 {
+        color: #1f6b2b;
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        color: #1f6b2b;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-style: oblique;
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 15px;
+        padding: 15px;
+        font-size: 16px;
+        border-radius: 25px;
+        border: 2px solid #1f6b2b;
+        background-color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #e0f3e4;
+      }
+
+      .back-btn {
+        background-color: #1f6b2b;
+        color: white;
+        font-weight: bold;
+      }
+
+      .image-section {
+        position: absolute;
+        right: -10px; /* bisa kamu ubah sesuka hati */
+        bottom: 100px; /* contoh posisi di bawah */
+        width: auto;
+        height: 100%;
+        display: flex;
+        align-items: flex-end; /* agar gambar tetap dasar */
+        justify-content: flex-end;
+      }
+
+      .image-section img {
+        height: 180%;
+        max-height: 550px; /* agar tidak terlalu besar */
+        object-fit: contain;
+        pointer-events: none;
+      }
+
+      footer {
+        text-align: left;
+        font-size: 0.8rem;
+        padding: 10px 20px;
+        color: white;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      @media screen and (max-width: 768px) {
+        .content-box {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .navigation-buttons {
+          margin-top: 20px;
+          display: flex;
+          gap: 10px;
+        }
+
+        .arrow-btn {
+          background-color: #1f6b2b;
+          color: white;
+          font-size: 24px;
+          padding: 10px 20px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: background-color 0.3s ease;
+        }
+
+        .arrow-btn:hover {
+          background-color: #3d8145;
+        }
+
+        .text-section,
+        .image-section {
+          max-width: 100%;
+        }
+
+        .image-section img {
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <img
+        src="/Gambar/Screenshot_2025-05-02_092324-removebg-preview.png"
+        alt="Logo My TaxPal"
+      />
+      <span>MyTaxpal</span>
+    </div>
+
+    <!-- Konten Utama -->
+    <div class="main-container">
+      <div class="content-box">
+        <div class="text-section">
+          <h1>FAISAL HADI SAIK</h1>
+          <h2>FRAMEWORK PROGAMMER</h2>
+          <p>
+            Saya adalah mahasiswa Universitas Siliwangi yang berdomisili di Kota
+            Tasikmalaya. Memiliki semangat belajar tinggi, khususnya di
+            bidangTeknologi Informasi Jaringan Komputer. Saya percaya bahwa
+            perubahan besar berawal dari langkah kecil. Dengan semangat belajar
+            dan kolaborasi, saya terus mencari ruang untuk tumbuh melalui
+            proyek-proyek kreatif dan pengalaman baru yang membangun. Moto hidup
+            saya "Belajar bukan kewajiban, tapi kebutuhan untuk
+            menjadi lebih baik.".
+          </p>
+          <a href="/zFiqriprofile.html">
+            <button>Selanjutnya</button>
+          </a>
+          <a href="zFadilprofile.html">
+            <button>Sebelumnya</button>
+          </a>
+          <a href="Aboutusawal.html">
+            <button class="back-btn">KEMBALI</button>
+          </a>
+        </div>
+        <div class="image-section">
+          <img src="/Gambar/FAISAL gans.png" alt="Foto isal" />
+        </div>
+      </div>
+    </div>
+
+    <footer>© 2025 My Taxpall. All rights reserved.</footer>
+  </body>
+</html>

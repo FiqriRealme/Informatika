@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator Pajak PPh 21</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="kalkulator.css" />
+  </head>
+
+  <body>
+    <div class="container kalkulator-container mt-5">
+      <h1 class="text-center mb-4">KALKULATOR PPH 21</h1>
+
+      <button
+        class="btn btn-custom"
+        data-bs-toggle="modal"
+        data-bs-target="#penjelasanModal"
+      >
+        Lihat Penjelasan Formulir
+      </button>
+
+      <form id="pphForm">
+        <div class="mb-3">
+          <label class="pph-label">Jenis Pemotongan:</label>
+          <p class="form-control-plaintext">Bulanan</p>
+        </div>
+
+        <div class="mb-3">
+          <label class="pph-label" for="kodeObjek">Kode Objek Pajak:</label>
+          <select
+            class="form-select"
+            id="kodeObjek"
+            aria-label="Kode Objek Pajak"
+          >
+            <option value="pegawai_tetap">21-200-01 Pegawai Tetap</option>
+            <option value="pensiun_berkala">21-200-02 Pensiunan Berkala</option>
+          </select>
+        </div>
+
+        <div class="mb-3 pph-radio-group">
+          <label class="form-label">Skema Penghitungan:</label>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="gross"
+              name="skema"
+              value="gross"
+              checked
+            />
+            <label class="form-check-label" for="gross">Gross</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="grossup"
+              name="skema"
+              value="grossup"
+            />
+            <label class="form-check-label" for="grossup">Gross Up</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="pph-label" for="bruto"
+            >Penghasilan Bruto (per bulan):</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="bruto"
+            required
+            placeholder="Masukkan gaji kotor bulanan Anda"
+            aria-label="Penghasilan Bruto"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="status" class="form-label">Status Kawin:</label>
+          <select id="status" class="form-select" aria-label="Status Kawin">
+            <option value="TK">Tidak Kawin</option>
+            <option value="K">Kawin</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="tanggungan" class="form-label">Jumlah Tanggungan:</label>
+          <select
+            id="tanggungan"
+            class="form-select"
+            aria-label="Jumlah Tanggungan"
+          >
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-custom">Hitung PPh 21</button>
+      </form>
+
+      <div class="hasil mt-4 alert alert-success d-none" id="hasilBox">
+        <h2 class="h5">Hasil Perhitungan</h2>
+        <ul>
+          <li>
+            <strong>Gaji Setahun:</strong> Rp <span id="gajiSetahun">-</span>
+          </li>
+          <li>
+            <strong>Gaji Sebulan:</strong> Rp <span id="gajiSebulan">-</span>
+          </li>
+          <li><strong>PTKP:</strong> Rp <span id="ptkpOutput">-</span></li>
+          <li>
+            <strong>PKP (Penghasilan Kena Pajak):</strong> Rp
+            <span id="pkp">-</span>
+          </li>
+          <li>
+            <strong>Pajak Setahun:</strong> Rp <span id="pajakSetahun">-</span>
+          </li>
+          <li>
+            <strong>Pajak Per Bulan:</strong> Rp
+            <span id="pajakPerBulan">-</span>
+          </li>
+        </ul>
+        <canvas id="pajakChart" width="400" height="200" class="mt-4"></canvas>
+        <p id="penjelasan" class="mt-3"></p>
+        <button onclick="resetForm()" class="btn btn-custom mt-3">
+          Ulangi Perhitungan
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal Penjelasan -->
+    <div
+      class="modal fade"
+      id="penjelasanModal"
+      tabindex="-1"
+      aria-labelledby="penjelasanModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="penjelasanModalLabel">
+              Penjelasan Formulir
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <ul class="list-unstyled">
+              <li>
+                <strong>Jenis Pemotongan:</strong>
+                <ul>
+                  <li>
+                    <strong>Bulanan</strong>: Untuk pegawai tetap yang menerima
+                    gaji setiap bulan.<br /><br />
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Kode Objek Pajak:</strong>
+                <ul>
+                  <li>
+                    <strong>21-200-01 Pegawai Tetap</strong>: Pegawai tetap
+                    perusahaan dengan penghasilan rutin.
+                  </li>
+                  <li>
+                    <strong>21-200-02 Pensiunan Berkala</strong>: Penerima
+                    pensiun bulanan dari lembaga/perusahaan.<br /><br />
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Skema Penghitungan:</strong>
+                <ul>
+                  <li>
+                    <strong>Gross</strong>: Pajak ditanggung sendiri oleh
+                    pegawai.
+                  </li>
+                  <li>
+                    <strong>Gross Up</strong>: Pajak dibayarkan oleh perusahaan
+                    dan ditambahkan ke penghasilan bruto.<br /><br />
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>PTKP (Penghasilan Tidak Kena Pajak):</strong>
+                <ul>
+                  <li><strong>TK</strong>: Tidak Kawin</li>
+                  <li><strong>K</strong>: Kawin</li>
+                  <li>
+                    <strong>Angka 0-3</strong>: Jumlah tanggungan (anak/keluarga
+                    yang ditanggung)
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-custom"
+              data-bs-dismiss="modal"
+            >
+              Tutup
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
+  <div class="nav-buttons">
+    <a href="Beranda.html" class="btn-custom">
+      <i class="bi bi-house-fill"></i> Kembali ke Beranda
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-3">
+    <p class="mb-0">© 2025 MyTaxpal, All Right Reserved</p>
+  </footer>
+</html>

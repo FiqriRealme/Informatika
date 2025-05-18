@@ -1,0 +1,193 @@
+/* kalkulator.css */
+@keyframes growIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.container.animate-grow {
+  animation: growIn 0.6s ease-out forwards;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url(/Gambar/OREO\ ABOUT\ US.png);
+  background-size: cover; /* Pastikan gambar menutupi seluruh layar */
+  background-position: center; /* Pusatkan gambar */
+  background-repeat: no-repeat; /* Hindari pengulangan */
+  background-attachment: fixed; /* Kunci background agar tidak ikut scroll */
+  margin: 0;
+  padding: 0;
+}
+
+.kalkulator-container {
+  max-width: 720px;
+  margin: 50px auto;
+  padding: 30px 40px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+  color: #839c3b;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pph-label {
+  display: block;
+  margin-top: 18px;
+  font-weight: 600;
+  color: #839c3b;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #839c3b;
+  background-color: #839c3b;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #3182ce;
+  outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-check-input:checked {
+  background-color: #839c3b;
+  border-color: #839c3b;
+}
+
+.form-check-input:hover {
+  border-color: #28a745;
+}
+.pph-radio-group {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.pph-radio-group label {
+  font-weight: normal;
+  color: #839c3b;
+}
+
+input[type="radio"] {
+  margin-right: 6px;
+}
+.btn-custom {
+  background-color: #839c3b;
+  color: #ffffff;
+  border: none;
+}
+.btn-custom:hover {
+  background-color: #60722a;
+}
+form button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background-color: #22e408;
+  color: #839c3b;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #088b1e;
+}
+
+.hasil {
+  margin-top: 35px;
+  padding: 20px;
+  background-color: #f0fff4;
+  border: 1px solid #c6f6d5;
+  border-radius: 10px;
+}
+
+#hasilPajak,
+#pajakSetahun,
+#pajakPerBulan {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2f855a;
+  margin-top: 5px;
+}
+
+#penjelasan {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+.penjelasan ul {
+  padding-left: 20px;
+}
+
+.penjelasan ul li {
+  margin-bottom: 6px;
+  color: #4a5568;
+}
+
+@media (max-width: 600px) {
+  .kalkulator-container {
+    padding: 20px;
+  }
+
+  .pph-radio-group {
+    flex-direction: column;
+  }
+
+  form button {
+    font-size: 15px;
+  }
+}
+
+footer {
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.nav-buttons {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-buttons a {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}

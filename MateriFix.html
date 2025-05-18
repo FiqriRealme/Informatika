@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Taxpal - Penghitung dan Edukasi Pajak PPh</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      @keyframes growIn {
+        0% {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .container.animate-grow {
+        animation: growIn 0.6s ease-out forwards;
+      }
+
+      body {
+        background-image: url(/Gambar/BG\ MATERI\ MTP.png);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        min-height: 100vh;
+        margin: 0;
+        padding-top: 70px;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .logo-header {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        padding: 20px;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-header img {
+        height: 55px;
+      }
+
+      .nav-buttons {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .nav-buttons a {
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-back {
+        background-color: #198754;
+      }
+
+      .btn-home {
+        background-color: #0d6efd;
+      }
+
+      .btn-back:hover {
+        background-color: #157347;
+      }
+
+      .btn-home:hover {
+        background-color: #0b5ed7;
+      }
+
+      .card {
+        border: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: transform 0.2s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      footer {
+        background-color: transparent;
+        color: white;
+      }
+
+      .card-title {
+        font-weight: bold;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      .container {
+        padding-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Logo Header -->
+    <div class="logo-header">
+      <img
+        src="/Gambar/Screenshot_2025-05-02_092324-removebg-preview.png"
+        alt="Logo MyTaxpall"
+      />
+      <h2 class="text-white mb-0"><strong>MyTaxpal</strong></h2>
+    </div>
+
+    <!-- Konten Utama -->
+    <main class="container mt-4 pt-5 animate-grow">
+      <div class="row g-4">
+        <!-- Materi 1 -->
+        <div class="col-md-6">
+          <div class="card h-100" onclick="tampilkanModal(0)">
+            <img
+              src="/Gambar/Palpal Hukum Perpajakan.png"
+              class="card-img-top"
+              alt="Aturan Pajak"
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                Hukum Undang-Undang Perpajakan yang Berlaku di Indonesia
+              </h5>
+              <p class="card-text">
+                Semua UU yang saling melengkapi untuk mengatur sistem perpajakan
+                Indonesia dimulai cara daftar pajak, cara hitung dan bayar,
+                sampai cara negara menagih pajak bila ada yang menunggak.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Materi 2 -->
+        <div class="col-md-6">
+          <div class="card h-100" onclick="tampilkanModal(1)">
+            <img
+              src="/Gambar/Palpal PPH.png"
+              class="card-img-top"
+              alt="Pajak Penghasilan"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Pajak Penghasilan</h5>
+              <p class="card-text">
+                Pengenalan terhadap jenis pajak PPh di Indonesia.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Materi 3 -->
+        <div class="col-md-6">
+          <div class="card h-100" onclick="tampilkanModal(2)">
+            <img
+              src="/Gambar/Dasar Perpajakan Indonesia.png"
+              class="card-img-top"
+              alt="Dasar Perpajakan"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Dasar Perpajakan Indonesia</h5>
+              <p class="card-text">
+                Pengenalan Konsep Umum perpajakan yang ada di Indonesia.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Materi 4 -->
+        <div class="col-md-6">
+          <div class="card h-100" onclick="tampilkanModal(3)">
+            <img src="/Gambar/UU HPP.png" class="card-img-top" alt="UU HPP" />
+            <div class="card-body">
+              <h5 class="card-title">Undang-Undang Hitung Pajak Penghasilan</h5>
+              <p class="card-text">
+                Pengenalan Rumus perhitungan pajak PPh di Indonesia.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Materi 5 -->
+        <div class="col-md-6">
+          <div class="card h-100" onclick="tampilkanModal(4)">
+            <img
+              src="/Gambar/SIMULASI Perpajakan Indonesia.png"
+              class="card-img-top"
+              alt="Simulasi Pajak"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Simulasi Skenario Pajak</h5>
+              <p class="card-text">
+                Gambaran atau perhitungan mengenai kewajiban membayar pajak.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Materi 6 -->
+        <div class="col-md-6">
+          <div class="card h-100" onclick="tampilkanModal(5)">
+            <img
+              src="/Gambar/Tips Edukasi Perpajakan.png"
+              class="card-img-top"
+              alt="Tips Pajak"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Tips Edukasi Pajak</h5>
+              <p class="card-text">Edukasi Perpajakan Indonesia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="nav-buttons">
+      <a href="Beranda.html" class="btn-custom">
+        <i class="bi bi-house-fill"></i> Kembali ke Beranda
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+      <p class="mb-0">© 2025 MyTaxpal, All Right Reserved</p>
+    </footer>
+
+    <!-- Modal Pop-up -->
+    <div
+      class="modal fade"
+      id="materiModal"
+      tabindex="-1"
+      aria-labelledby="materiModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="materiModalLabel">Judul Materi</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Tutup"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalContent">
+            Konten materi akan muncul di sini.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script untuk Modal -->
+    <script>
+      const dataMateri = [
+        {
+          judul: "10 Undang-Undang Perpajakan di Indonesia",
+          konten: `
+            <ol>
+              <li>UU KUP</li>
+              <li>UU Pajak Penghasilan (PPh)</li>
+              <li>UU PPN dan PPnBM</li>
+              <li>UU PBB</li>
+              <li>UU Bea Materai</li>
+              <li>UU Cukai</li>
+              <li>UU Pajak Daerah</li>
+              <li>UU Pengampunan Pajak</li>
+              <li>UU HPP</li>
+              <li>UU Pajak Digital</li>
+            </ol>
+            <p>Materi ini menjelaskan dasar undang-undang perpajakan di Indonesia.</p>
+          `,
+        },
+        {
+          judul: "Pajak Penghasilan",
+          konten:
+            "<p>Pajak Penghasilan (PPh) di Indonesia adalah pajak yang dikenakan terhadap penghasilan yang diterima oleh individu maupun badan usaha, baik yang berasal dari dalam maupun luar negeri, seperti gaji, honorarium, usaha, hadiah, sewa, dan dividen. PPh diatur dalam Undang-Undang Pajak Penghasilan dan berlaku bagi Wajib Pajak Orang Pribadi (seperti karyawan atau pengusaha) serta Wajib Pajak Badan (seperti PT dan CV).<br><br> Terdapat beberapa jenis PPh, seperti PPh 21 untuk gaji karyawan, PPh 22 atas kegiatan impor dan pembelian oleh instansi pemerintah, PPh 23 atas jasa dan dividen, PPh 25 untuk angsuran bulanan Wajib Pajak, serta PPh 29 sebagai pelunasan kekurangan pajak tahunan. Pemungutan dan pelaporan pajak ini dilakukan melalui sistem self-assessment, di mana Wajib Pajak wajib menghitung, membayar, dan melaporkan sendiri kewajiban pajaknya kepada Direktorat Jenderal Pajak. Pajak ini menjadi sumber utama pendapatan negara dan berfungsi dalam pemerataan pembangunan serta kesejahteraan masyarakat.</p>",
+        },
+        {
+          judul: "Dasar Perpajakan Indonesia",
+          konten:
+            "<p>Perpajakan di Indonesia merupakan sistem pungutan wajib yang diberlakukan oleh negara kepada warga negara dan badan usaha sebagai bentuk kontribusi terhadap pembiayaan pembangunan nasional dan pelayanan publik. Konsep umum perpajakan di Indonesia menganut sistem self-assessment, di mana Wajib Pajak memiliki tanggung jawab untuk menghitung, membayar, dan melaporkan sendiri pajaknya.<br><br> Ada dua jenis pajak utama: Pajak Pusat yang dipungut oleh pemerintah pusat melalui Direktorat Jenderal Pajak (seperti Pajak Penghasilan, PPN, dan Bea Materai) dan Pajak Daerah yang dipungut oleh pemerintah daerah (seperti Pajak Kendaraan Bermotor dan Pajak Hotel).<br><br> Prinsip-prinsip perpajakan di Indonesia mengacu pada keadilan, kepastian hukum, dan efisiensi administrasi. Selain itu, Wajib Pajak juga memiliki hak seperti mendapatkan NPWP, pelayanan perpajakan, serta melakukan keberatan atau banding atas ketetapan pajak. Dengan pemahaman yang baik tentang sistem ini, masyarakat diharapkan dapat menjalankan kewajiban perpajakannya secara sukarela dan bertanggung jawab.</p>",
+        },
+        {
+          judul: "UU Hitung Pajak Penghasilan",
+          konten:
+            "<p>Perhitungan Pajak Penghasilan (PPh) di Indonesia mengikuti rumus dasar:<br><strong>PPh Terutang = Tarif Pajak &times; Penghasilan Kena Pajak</strong><br><br>Penghasilan Kena Pajak dihitung dari:<br><strong>Penghasilan Kena Pajak = Penghasilan Bruto - Pengurang - PTKP</strong><br><br>Tarif pajak progresif yang berlaku:<br>- 5% untuk penghasilan &le; Rp60.000.000<br> - 15% untuk penghasilan &gt; Rp60.000.000 s/d Rp250.000.000<br>- 25% untuk penghasilan &gt; Rp250.000.000 s/d Rp500.000.000<br>- 30% untuk penghasilan &gt; Rp500.000.000 s/d Rp5.000.000.000<br>- 35% untuk penghasilan &gt; Rp5.000.000.000</p>",
+        },
+        {
+          judul: "Simulasi Skenario Pajak",
+          konten:
+            "<p>Simulasi Skenario Pajak adalah alat interaktif yang memberikan gambaran atau perhitungan mengenai kewajiban membayar pajak berdasarkan data yang dimasukkan pengguna, seperti penghasilan, status pernikahan, dan jenis pekerjaan. Dengan memasukkan informasi ini, pengguna dapat melihat estimasi jumlah pajak yang harus dibayar dalam satu tahun fiskal, termasuk pembagian ke dalam jenis pajak seperti PPh 21 atau PPh Final. Simulasi ini dirancang agar mudah digunakan tanpa mengganggu fungsi JavaScript lain di halaman web, sehingga dapat diintegrasikan dengan lancar ke dalam berbagai sistem atau platform tanpa konflik kode.</p>",
+        },
+        {
+          judul: "Tips Edukasi Pajak",
+          konten:
+            "<p>Untuk meningkatkan kesadaran dan kepatuhan pajak di Indonesia, penting bagi masyarakat untuk memahami dasar-dasar perpajakan melalui pendekatan edukatif yang sederhana dan relevan. Mulailah dengan mengenali jenis-jenis pajak yang berlaku, seperti PPh (Pajak Penghasilan) dan PPN (Pajak Pertambahan Nilai), serta siapa saja yang wajib membayar. Manfaatkan sumber resmi seperti DJP Online dan kanal media sosial Direktorat Jenderal Pajak untuk mendapatkan informasi yang akurat. Gunakan simulasi pajak dan kalkulator pajak daring sebagai alat bantu untuk memahami cara perhitungan secara praktis. <br><br>Selain itu, mengikuti webinar atau pelatihan perpajakan yang diselenggarakan oleh instansi pemerintah atau mitra edukasi bisa menjadi cara efektif untuk menambah wawasan tanpa harus berlatar belakang keuangan atau akuntansi. Edukasi pajak yang berkelanjutan mendorong terciptanya wajib pajak yang cerdas dan berkontribusi aktif terhadap pembangunan negara.</p>",
+        },
+      ];
+
+      function tampilkanModal(index) {
+        const materi = dataMateri[index];
+        document.getElementById("materiModalLabel").innerHTML = materi.judul;
+        document.getElementById("modalContent").innerHTML = materi.konten;
+        const modal = new bootstrap.Modal(
+          document.getElementById("materiModal")
+        );
+        modal.show();
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const container = document.querySelector(".container");
+        container.classList.add("animate-grow");
+      });
+    </script>
+  </body>
+</html>
